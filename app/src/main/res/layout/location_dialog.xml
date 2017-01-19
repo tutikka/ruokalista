@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textStyle="bold"
+            android:textColor="#e0e0e0"
+            android:textSize="18dp"
+            android:padding="8dp"
+            android:background="#c03030"
+            android:text="Ruokala"/>
+
+    <EditText
+            android:id="@+id/filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:padding="8dp"
+            android:background="#d0d0d0"
+            android:textSize="16dp"
+            android:hint="Etsi nimellä tai paikkakunnalla"
+            android:textColorHint="#a0a0a0"/>
+
+    <Button
+            android:id="@+id/cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:textSize="16dp"
+            android:text="Peruuta"/>
+
+    <ListView
+            android:id="@+id/locations"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/filter"
+            android:layout_above="@id/cancel"
+            android:layout_margin="8dp"
+            android:divider="@null"
+            android:dividerHeight="8dp"/>
+
+</RelativeLayout>

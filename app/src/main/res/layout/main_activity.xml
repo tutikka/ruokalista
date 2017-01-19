@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TableLayout
+            android:id="@+id/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#d0d0d0"
+            android:padding="8dp"
+            android:stretchColumns="1">
+
+        <TableRow>
+
+            <ImageButton
+                    android:id="@+id/previous"
+                    android:background="@null"
+                    android:src="@drawable/ic_chevron_left_black_48dp"
+                    android:tint="#606060"/>
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#606060"
+                android:text="-"/>
+
+            <ImageButton
+                    android:id="@+id/next"
+                    android:background="@null"
+                    android:src="@drawable/ic_chevron_right_black_48dp"
+                    android:tint="#606060"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <ListView
+            android:id="@+id/courses"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/buttons"
+            android:layout_margin="8dp"
+            android:divider="@null"
+            android:dividerHeight="8dp"/>
+
+    <LinearLayout
+            android:id="@+id/empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            android:visibility="gone">
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_warning_black_96dp"
+                android:tint="#c03030"
+                android:layout_gravity="center_horizontal"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ruokalistaa ei löydetty"
+                android:textColor="#606060"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
