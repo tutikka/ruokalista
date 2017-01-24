@@ -17,3 +17,5 @@ Asennus
 * Skannaa alla oleva QR-koodi puhelimella tai tabletilla
 
 ![ScreenShot](/screenshots/qr.png)
+
+*Huom!* Asennus vaatii seuraavan asetuksen päälle (Asetukset -> Suojaus -> Tuntemattomat lähteet, engl. Settings -> Security -> Unknown sources)
