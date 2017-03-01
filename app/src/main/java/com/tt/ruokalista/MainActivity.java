@@ -74,14 +74,6 @@ public class MainActivity extends Activity implements View.OnClickListener, Loca
     }
 
     @Override
-    protected void onDestroy() {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("location_code", location.getCode());
-        editor.commit();
-        super.onDestroy();
-    }
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_activity_menu, menu);
@@ -116,6 +108,9 @@ public class MainActivity extends Activity implements View.OnClickListener, Loca
     public void onLocationSelected(Location location) {
         this.location = location;
         getActionBar().setSubtitle(this.location.toString());
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("location_code", location.getCode());
+        editor.commit();
         new UpdateAsyncTask().execute(location);
     }
 
