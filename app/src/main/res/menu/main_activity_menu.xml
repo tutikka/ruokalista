@@ -2,9 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-            android:id="@+id/select_location"
-            android:title="Valitse ruokala"
-            android:icon="@drawable/ic_location_city_white_48dp"
-            android:showAsAction="always"/>
+        android:id="@+id/speak"
+        android:title="Toista"
+        android:icon="@drawable/ic_hearing_white_48dp"
+        android:showAsAction="always"/>
+
+    <item
+        android:id="@+id/select_location"
+        android:title="Valitse ruokala"
+        android:icon="@drawable/ic_location_city_white_48dp"
+        android:showAsAction="always"/>
 
 </menu>

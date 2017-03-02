@@ -6,10 +6,14 @@ import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.speech.tts.TextToSpeech;
 import android.view.*;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tt.ruokalista.dto.CourseItem;
 import com.tt.ruokalista.dto.Courses;
@@ -20,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends Activity implements View.OnClickListener, LocationDialog.LocationSelectionListener {
 
@@ -32,6 +37,10 @@ public class MainActivity extends Activity implements View.OnClickListener, Loca
     private SharedPreferences sharedPreferences;
 
     private Calendar calendar = Calendar.getInstance();
+
+    private Handler handler = new Handler();
+
+    private TextToSpeech textToSpeech;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,12 +74,37 @@ public class MainActivity extends Activity implements View.OnClickListener, Loca
         ImageButton next = (ImageButton) findViewById(R.id.next);
         next.setTag("next");
         next.setOnClickListener(this);
+
+        textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int i) {
+                if (i == TextToSpeech.SUCCESS) {
+                    int result = textToSpeech.setLanguage(new Locale("fi", "FI"));
+                    if (result == TextToSpeech.SUCCESS) {
+                        // TODO
+                    } else {
+                        textToSpeech.setLanguage(Locale.UK);
+                    }
+                } else {
+                    // TODO
+                }
+            }
+        });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         new UpdateAsyncTask().execute(location);
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (textToSpeech != null) {
+            textToSpeech.stop();
+            textToSpeech.shutdown();
+        }
+        super.onDestroy();
     }
 
     @Override
@@ -83,7 +117,24 @@ public class MainActivity extends Activity implements View.OnClickListener, Loca
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.select_location: {
+            case R.id.speak : {
+                if (textToSpeech != null) {
+                    Toast.makeText(this, "Toistetaan ruokalista...", Toast.LENGTH_SHORT).show();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            for (int i = 0; i < courseAdapter.getCount(); i++) {
+                                CourseItem courseItem = courseAdapter.getItem(i);
+                                textToSpeech.speak(courseItem.getTitle_fi(), TextToSpeech.QUEUE_ADD, null);
+                            }
+                        }
+                    });
+                } else {
+                    // TODO
+                }
+                return (true);
+            }
+            case R.id.select_location : {
                 Dialog dialog = new LocationDialog(this, this);
                 dialog.show();
                 return (true);
