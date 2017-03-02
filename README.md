@@ -14,12 +14,25 @@ Vaatimukset
 Asennus
 -------
 
-* Lataa ja asenna APK paketti [tästä linkistä](https://github.com/tutikka/ruokalista/raw/master/apk/ruokalista-0.1.0.apk), tai
+* Lataa ja asenna APK paketti [tästä linkistä](https://github.com/tutikka/ruokalista/raw/master/apk/ruokalista-0.2.0.apk), tai
 * Skannaa alla oleva QR-koodi puhelimella tai tabletilla
 
-![ScreenShot](/screenshots/qr.png)
+![ScreenShot](/screenshots/qr.jpg)
+
+**Huom!** Alkuperäinen paketin avain on hukkunut, joten päivitys ei onnistu. Edellinen versio pitää poistaa kokonaan, ja asentaa vasta sitten.
 
 **Huom!** Asennus vaatii seuraavan asetuksen päälle (Asetukset -> Suojaus -> Tuntemattomat lähteet, engl. Settings -> Security -> Unknown sources)
+
+Ohjeet
+------
+
+* Asennuksen jälkeen käynnistä sovellus
+* Avaa lista ravintoloista (menu -> rakennuksen kuva)
+* Voit valita ruokalistan painamalla haluttua ravintolaa
+* Voit nähdä ravintolan kartalla (ja saada ajo-ohjeet) painamalla ja pitämällä pohjassa haluttua ravintolaa
+* Selaa päiviä eteen ja taakse alapalkin nuolista
+* Valitun ruokalistan voi kuunnella (menu -> korvan kuva), jos et halua tai jaksa itse lukea listaa muille
+* Viimeksi valittu ravintola jää muistiin, ja sen ruokalista näytetään seuraavalla käynnistyksellä
 
 Disclaimer
 ----------
