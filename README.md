@@ -19,8 +19,6 @@ Asennus
 
 ![ScreenShot](/screenshots/qr.jpg)
 
-**Huom!** Alkuperäinen paketin avain on hukkunut, joten päivitys ei onnistu. Edellinen versio pitää poistaa kokonaan, ja asentaa vasta sitten.
-
 **Huom!** Asennus vaatii seuraavan asetuksen päälle (Asetukset -> Suojaus -> Tuntemattomat lähteet, engl. Settings -> Security -> Unknown sources)
 
 Ohjeet
