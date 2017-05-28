@@ -42,6 +42,8 @@ public class MainActivity extends Activity implements View.OnClickListener, Loca
 
     private TextToSpeech textToSpeech;
 
+    private String language = "fi";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,12 +83,13 @@ public class MainActivity extends Activity implements View.OnClickListener, Loca
                 if (i == TextToSpeech.SUCCESS) {
                     int result = textToSpeech.setLanguage(new Locale("fi", "FI"));
                     if (result == TextToSpeech.SUCCESS) {
-                        // TODO
+                        language = "fi";
                     } else {
                         textToSpeech.setLanguage(Locale.UK);
+                        language = "en";
                     }
                 } else {
-                    // TODO
+                    Toast.makeText(MainActivity.this, "TTS-palvelu (tekstinluku) ei käytössä (" + i + ")", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -119,13 +122,19 @@ public class MainActivity extends Activity implements View.OnClickListener, Loca
         switch (item.getItemId()) {
             case R.id.speak : {
                 if (textToSpeech != null) {
-                    Toast.makeText(this, "Toistetaan ruokalista...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Toistetaan ruokalista (" + language + ")", Toast.LENGTH_SHORT).show();
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
+                            textToSpeech.speak(location.getTitle() + ", " + location.getCity() + ", " + new SimpleDateFormat("dd.MM.yyyy").format(calendar.getTime()), TextToSpeech.QUEUE_ADD, null);
                             for (int i = 0; i < courseAdapter.getCount(); i++) {
                                 CourseItem courseItem = courseAdapter.getItem(i);
-                                textToSpeech.speak(courseItem.getTitle_fi(), TextToSpeech.QUEUE_ADD, null);
+                                if ("fi".equals(language) && courseItem.getTitle_fi() != null) {
+                                    textToSpeech.speak(courseItem.getTitle_fi(), TextToSpeech.QUEUE_ADD, null);
+                                }
+                                if ("en".equals(language) && courseItem.getTitle_en() != null) {
+                                    textToSpeech.speak(courseItem.getTitle_en(), TextToSpeech.QUEUE_ADD, null);
+                                }
                             }
                         }
                     });
