@@ -4,8 +4,6 @@ public class Meta {
 
     private Long generated_timestamp;
 
-    private Long requested_timestamp;
-
     private String ref_url;
 
     private String ref_title;
@@ -19,14 +17,6 @@ public class Meta {
 
     public void setGenerated_timestamp(Long generated_timestamp) {
         this.generated_timestamp = generated_timestamp;
-    }
-
-    public Long getRequested_timestamp() {
-        return requested_timestamp;
-    }
-
-    public void setRequested_timestamp(Long requested_timestamp) {
-        this.requested_timestamp = requested_timestamp;
     }
 
     public String getRef_url() {

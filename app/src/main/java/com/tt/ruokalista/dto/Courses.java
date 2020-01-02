@@ -1,12 +1,12 @@
 package com.tt.ruokalista.dto;
 
-import java.util.List;
+import java.util.Map;
 
 public class Courses {
 
     private Meta meta;
 
-    private List<CourseItem> courses;
+    private Map<String, CourseItem> courses;
 
     public Courses() {
     }
@@ -19,11 +19,11 @@ public class Courses {
         this.meta = meta;
     }
 
-    public List<CourseItem> getCourses() {
+    public Map<String, CourseItem> getCourses() {
         return courses;
     }
 
-    public void setCourses(List<CourseItem> courses) {
+    public void setCourses(Map<String, CourseItem> courses) {
         this.courses = courses;
     }
 

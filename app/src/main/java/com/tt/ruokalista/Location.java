@@ -18,49 +18,6 @@ public class Location implements Comparable<Location> {
         return (result);
     }
 
-    public static void load() {
-        // Espoo
-        locations.put("546", new Location("546", "Stella Business Park, Terra", "Espoo"));
-        locations.put("79", new Location("79", "Stella Business Park, Nova", "Espoo"));
-        locations.put("77", new Location("77", "Kaivomestari", "Espoo"));
-        locations.put("12", new Location("12", "Business Park Mankkaa", "Espoo"));
-        locations.put("12651", new Location("12651", "Niittykatu 8", "Espoo"));
-        locations.put("13821", new Location("13821", "Ravintola Laturi", "Espoo"));
-        locations.put("16435", new Location("16435", "Metropolia Vanha Maantie 6", "Espoo"));
-        locations.put("57", new Location("57", "Keilasatama 5", "Espoo"));
-        locations.put("16435", new Location("16435", "Metropolia Vanha Maantie 6", "Espoo"));
-
-        // Turku
-        locations.put("70", new Location("70", "Old Mill", "Turku"));
-        locations.put("54", new Location("54", "ICT-Talo", "Turku"));
-        locations.put("132", new Location("132", "Auriga Business Center, Fiskarholmen", "Turku"));
-        locations.put("16543", new Location("16543", "Candio", "Turku"));
-        locations.put("64", new Location("64", "Turun AMK, Lemminkäisenkatu", "Turku"));
-        locations.put("14627", new Location("14627", "Fläkt Woods", "Turku"));
-
-        // Tampere
-        locations.put("22", new Location("22", "Dynamo Business Park", "Tampere"));
-        locations.put("83", new Location("83", "Rengasterassi", "Tampere"));
-        locations.put("19759", new Location("19759", "Ravintola Näköala", "Tampere"));
-        locations.put("91", new Location("91", "Tampereen Oikeustalo", "Tampere"));
-        locations.put("19758", new Location("19758", "Ravintola Palopesä", "Tampere"));
-        locations.put("92", new Location("92", "Tampereen yliopisto, Linna", "Tampere"));
-        locations.put("19754", new Location("19754", "Ravintola Tietotalo", "Tampere"));
-        locations.put("58", new Location("58", "Kulmasarvis", "Tampere"));
-        locations.put("19751", new Location("19751", "Ravintola Varikko", "Tampere"));
-        locations.put("19682", new Location("19682", "Ravintola Vaski", "Tampere"));
-        locations.put("12812", new Location("12812", "TTY Tietotalo", "Tampere"));
-        locations.put("22", new Location("22", "Dynamo Business Park", "Tampere"));
-
-        // Oulu
-        locations.put("12820", new Location("12820", "Technopolis Peltola RE5T4UR4NT MYRSKY", "Oulu"));
-        locations.put("8336", new Location("8336", "Technopolis Luoto", "Oulu"));
-        locations.put("49", new Location("49", "Technopolis Galaksi", "Oulu"));
-        locations.put("122", new Location("122", "Technopolis Oulu, Kahvila", "Oulu"));
-        locations.put("16", new Location("16", "Technopolis Oulu Linnanmaa, Elektra", "Oulu"));
-        locations.put("72", new Location("72", "Oulun kaupunki, Oulu ja Haukipudas koulut ja päiväkodit", "Oulu"));
-    }
-
     public static void load(Context context) {
         List<Location> result = new ArrayList<>();
         BufferedReader br = null;
@@ -145,7 +102,7 @@ public class Location implements Comparable<Location> {
     }
 
     @Override
-    public int compareTo(@NonNull Location another) {
+    public int compareTo(Location another) {
         int i = city.compareTo(another.getCity());
         if (i == 0) {
             return (title.compareTo(another.getTitle()));

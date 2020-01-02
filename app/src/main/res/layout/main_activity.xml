@@ -9,7 +9,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="#d0d0d0"
+            android:background="#ebe9e7"
             android:padding="8dp"
             android:stretchColumns="1">
 
@@ -19,21 +19,21 @@
                     android:id="@+id/previous"
                     android:background="@null"
                     android:src="@drawable/ic_chevron_left_black_48dp"
-                    android:tint="#606060"/>
+                    android:tint="#212121"/>
 
             <TextView
                 android:id="@+id/date"
                 android:layout_gravity="center"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="#606060"
+                android:textColor="#212121"
                 android:text="-"/>
 
             <ImageButton
                     android:id="@+id/next"
                     android:background="@null"
                     android:src="@drawable/ic_chevron_right_black_48dp"
-                    android:tint="#606060"/>
+                    android:tint="#212121"/>
 
         </TableRow>
 
@@ -60,14 +60,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_warning_black_96dp"
-                android:tint="#c03030"
+                android:tint="#252650"
                 android:layout_gravity="center_horizontal"/>
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ruokalistaa ei löydetty"
-                android:textColor="#606060"/>
+                android:textColor="#252650"/>
 
     </LinearLayout>
 

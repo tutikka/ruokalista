@@ -10,10 +10,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:textStyle="bold"
-            android:textColor="#e0e0e0"
+            android:textColor="#ffffff"
             android:textSize="18dp"
             android:padding="8dp"
-            android:background="#c03030"
+            android:background="#252650"
             android:text="Ruokala"/>
 
     <EditText
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/title"
             android:padding="8dp"
-            android:background="#d0d0d0"
+            android:background="#ebe9e7"
             android:textSize="16dp"
             android:hint="Etsi nimellä tai paikkakunnalla"
             android:textColorHint="#a0a0a0"/>

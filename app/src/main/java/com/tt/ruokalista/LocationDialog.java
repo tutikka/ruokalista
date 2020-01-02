@@ -9,6 +9,8 @@ import android.text.TextWatcher;
 import android.view.*;
 import android.widget.*;
 
+import java.util.Locale;
+
 
 public class LocationDialog extends Dialog implements View.OnClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
 
@@ -73,8 +75,15 @@ public class LocationDialog extends Dialog implements View.OnClickListener, Adap
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
         Location location = locationAdapter.getItem(position);
-        Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?q=" + location.getLatitude() + "," + location.getLongitude()));
-        getContext().startActivity(intent);
+        if (location.getLatitude() == 0.0 || location.getLongitude() == 0.0) {
+            Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(String.format(Locale.ENGLISH, "geo:0,0?q=%s,%s", location.getAddress(), location.getCity())));
+            intent.setPackage("com.google.android.apps.maps");
+            getContext().startActivity(intent);
+        } else {
+            Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(String.format(Locale.ENGLISH,"geo:%f,%f", location.getLatitude(), location.getLongitude())));
+            intent.setPackage("com.google.android.apps.maps");
+            getContext().startActivity(intent);
+        }
         return (true);
     }
 

@@ -4,7 +4,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#d0d0d0"
+        android:background="#ebe9e7"
         android:orientation="vertical">
 
         <TextView
@@ -13,10 +13,10 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textAlignment="viewEnd"
-                android:textColor="#e0e0e0"
+                android:textColor="#ffffff"
                 android:textSize="16dp"
                 android:padding="8dp"
-                android:background="#c03030"/>
+                android:background="#252650"/>
 
         <TextView
                 android:id="@+id/category"
@@ -25,7 +25,7 @@
                 android:padding="8dp"
                 android:singleLine="true"
                 android:textSize="16dp"
-                android:textColor="#803030"/>
+                android:textColor="#252650"/>
 
         <TextView
                 android:id="@+id/title"
@@ -36,7 +36,7 @@
                 android:paddingBottom="8dp"
                 android:singleLine="false"
                 android:textSize="16dp"
-                android:textColor="#606060"/>
+                android:textColor="#212121"/>
 
         <TextView
                 android:id="@+id/properties"
@@ -47,6 +47,6 @@
                 android:paddingBottom="8dp"
                 android:singleLine="true"
                 android:textSize="16dp"
-                android:textColor="#606060"/>
+                android:textColor="#212121"/>
 
 </LinearLayout>

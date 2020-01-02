@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.*;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -126,7 +127,6 @@ public class MainActivity extends Activity implements View.OnClickListener, Loca
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            textToSpeech.speak(location.getTitle() + ", " + location.getCity() + ", " + new SimpleDateFormat("dd.MM.yyyy").format(calendar.getTime()), TextToSpeech.QUEUE_ADD, null);
                             for (int i = 0; i < courseAdapter.getCount(); i++) {
                                 CourseItem courseItem = courseAdapter.getItem(i);
                                 if ("fi".equals(language) && courseItem.getTitle_fi() != null) {
@@ -205,15 +205,15 @@ public class MainActivity extends Activity implements View.OnClickListener, Loca
                 int month = calendar.get(Calendar.MONTH) + 1;
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
                 StringBuilder sb = new StringBuilder();
-                sb.append("http://www.sodexo.fi/ruokalistat/output/daily_json/");
+                sb.append("https://www.sodexo.fi/ruokalistat/output/daily_json/");
                 sb.append(locations[0].getCode());
                 sb.append("/");
                 sb.append(year);
-                sb.append("/");
+                sb.append("-");
                 sb.append(month < 10 ? "0" + month : month);
-                sb.append("/");
+                sb.append("-");
                 sb.append(day < 10 ? "0" + day : day);
-                sb.append("/fi");
+                Log.i("MainActivity", "using url " + sb.toString());
                 URL url = new URL(sb.toString());
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setConnectTimeout(15 * 1000);
@@ -223,7 +223,11 @@ public class MainActivity extends Activity implements View.OnClickListener, Loca
                 if (status == 200) {
                     ObjectMapper mapper = new ObjectMapper();
                     Courses courses = mapper.readValue(conn.getInputStream(), Courses.class);
-                    result = courses.getCourses();
+                    for (CourseItem item : courses.getCourses().values()) {
+                        result.add(item);
+                    }
+                } else {
+                    Toast.makeText(MainActivity.this, "Virhe ruokalistan päivityksessä (" + status + ")", Toast.LENGTH_SHORT).show();
                 }
             } catch (Exception e) {
                 System.err.println(e.getMessage());

@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#d0d0d0"
+        android:background="#ebe9e7"
         android:padding="8dp">
 
     <ImageView
@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:textColor="#803030"
+                android:textColor="#252650"
                 android:textSize="16dp"/>
 
         <TextView
@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:textColor="#606060"
+                android:textColor="#212121"
                 android:textSize="14dp"/>
 
         <TextView
@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:textColor="#606060"
+                android:textColor="#212121"
                 android:textSize="14dp"/>
 
     </LinearLayout>
