@@ -14,10 +14,10 @@ Vaatimukset
 Asennus
 -------
 
-* Lataa ja asenna APK paketti [tästä linkistä](https://github.com/tutikka/ruokalista/raw/master/apk/ruokalista-0.3.0.apk), tai
+* Lataa ja asenna APK paketti [tästä linkistä](https://github.com/tutikka/ruokalista/raw/master/apk/ruokalista-0.3.1.apk), tai
 * Skannaa alla oleva QR-koodi puhelimella tai tabletilla
 
-![ScreenShot](/screenshots/qr.jpg)
+![ScreenShot](/screenshots/qr.png)
 
 **Huom!** Asennus vaatii seuraavan asetuksen päälle (Asetukset -> Suojaus -> Tuntemattomat lähteet, engl. Settings -> Security -> Unknown sources)
 
